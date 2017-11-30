@@ -2,19 +2,24 @@
 const loader = require('./sequelize-loader');
 const Sequelize = loader.Sequelize;
 
-const User = loader.database.define('users',{
-  userId:{
+const Comment = loader.database.define('comments', {
+  scheduleId: {
+    type: Sequelize.UUID,
+    primaryKey: true,
+    allowNull: false
+  },
+  userId: {
     type: Sequelize.INTEGER,
     primaryKey: true,
-    allowNULL: false
+    allowNull: false
   },
-  username:{
+  comment: {
     type: Sequelize.STRING,
     allowNull: false
   }
-},{
+}, {
     freezeTableName: true,
     timestamps: false
-});
+  });
 
-module.exports = User;
+module.exports = Comment;
